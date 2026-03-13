@@ -1,0 +1,5 @@
+﻿--- ADVANCED INSIGHTS CALCULATIONS ---
+[Offloading ROI] Total Savings: $1.91. Projected savings for a campus of 20,000 students is $3677.31.
+[Router Sensitivity] The Complexity Threshold (where escalation to cloud begins) is 382 tokens.
+[Agentic Efficiency] The Overhead per Reasoning Step is calculated at 0.50 seconds.
+[Hardware Stress Profile] Memory Usage at Query #1 was 713.44 MB, and at Query #104 was 722.55 MB. The variance is 1.28%.

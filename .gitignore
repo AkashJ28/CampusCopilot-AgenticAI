@@ -1,0 +1,120 @@
+# =================================================================
+# ENVIRONMENT & SECRETS — NEVER COMMIT THESE
+# =================================================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+*.env
+
+# Specific env files
+backend/.env
+frontend/.env
+ai-agent/.env
+
+# Credential files
+creds
+*.pem
+*.key
+*.cert
+*.p12
+
+# =================================================================
+# DATABASE FILES
+# =================================================================
+backend/db.sql
+backend/populate_db.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# =================================================================
+# PYTHON
+# =================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ai-agent/venv/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb
+
+# =================================================================
+# NODE / JAVASCRIPT
+# =================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.yarn/
+
+# =================================================================
+# BUILD OUTPUT
+# =================================================================
+frontend/build/
+frontend/.next/
+frontend/out/
+dist/
+.cache/
+
+# =================================================================
+# LOGS & TEMPORARY FILES
+# =================================================================
+*.log
+logs/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# =================================================================
+# DATA FILES (large CSVs — keep only source, not generated)
+# =================================================================
+# Uncomment the lines below if you want to exclude large CSVs:
+# *.csv
+
+# =================================================================
+# IMAGES / PLOTS (generated outputs — optional to exclude)
+# =================================================================
+# reusult Images/
+
+# =================================================================
+# OS & EDITOR FILES
+# =================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.suo
+*.user
+*.sublime-project
+*.sublime-workspace
+
+# =================================================================
+# MISC
+# =================================================================
+*.zip
+*.tar.gz
+*.rar

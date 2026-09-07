@@ -1,9 +1,10 @@
+from core import agent_factory
 import uvicorn
 import time
 import json
 from fastapi import FastAPI
 from pydantic import BaseModel
-from langchain.callbacks.base import BaseCallbackHandler
+from langchain_core.callbacks import BaseCallbackHandler
 from core.agent_factory import create_agent_executor 
 
 class GroundingException(Exception):
@@ -203,9 +204,14 @@ async def ask_agent(query: Query):
                         tool_result = target_tool.invoke(tool_args)
                             
                         # Second Turn
-                        current_input = f"{current_input}\n\n[Thought]: {output_text}\n[Observation]: {tool_result}\n\nNow synthesize the final natural language response based on this."
+                        current_input = (
+                            f"The user ({name}) asked: '{query.query}'.\n"
+                            f"The database successfully returned the following data: {tool_result}\n\n"
+                            f"CRITICAL: Do NOT output another JSON tool call structure. The data has already been fetched. "
+                            f"Directly synthesize a friendly, natural language response answering their question using the data above."
+)
                         print("🔄 Second Turn: Re-invoking LLM with tool output.")
-                        
+
                         res = agent.invoke({
                             "input": current_input,
                             "context": user_context,

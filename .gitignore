@@ -2,6 +2,7 @@
 # ENVIRONMENT & SECRETS — NEVER COMMIT THESE
 # =================================================================
 .env
+.env.*
 .env.local
 .env.*.local
 .env.development
@@ -9,26 +10,47 @@
 .env.test
 *.env
 
-# Specific env files
+# Never ignore example env templates
+!.env.example
+!.env*.example
+!**/.env.example
+!**/.env*.example
+
+# Specific env files per service
 backend/.env
 frontend/.env
 ai-agent/.env
 
-# Credential files
+# Credential / secret files — NEVER commit these
 creds
+creds.*
+**/creds
+**/creds.*
+credentials*
+**/credentials*
 *.pem
 *.key
 *.cert
 *.p12
+*.pfx
+*service-account*.json
+id_rsa*
+id_ed25519*
 
 # =================================================================
-# DATABASE FILES
+# DATABASE FILES (schema & seed data — contains passwords)
 # =================================================================
-backend/db.sql
-backend/populate_db.sql
+db.sql
+populate_db.sql
+**/db.sql
+**/populate_db.sql
 *.sqlite
 *.sqlite3
 *.db
+*.dump
+*.backup
+dump*.sql
+backup*.sql
 
 # =================================================================
 # PYTHON
@@ -40,6 +62,10 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+.coverage.*
+coverage/
+htmlcov/
 dist/
 build/
 *.egg-info/
@@ -53,6 +79,8 @@ venv/
 env/
 .env/
 ai-agent/venv/
+backend/venv/
+frontend/venv/
 
 # Jupyter / IPython
 .ipynb_checkpoints/
@@ -62,6 +90,8 @@ ai-agent/venv/
 # NODE / JAVASCRIPT
 # =================================================================
 node_modules/
+.eslintcache
+.stylelintcache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -89,13 +119,15 @@ logs/
 *.swo
 
 # =================================================================
-# DATA FILES (large CSVs — keep only source, not generated)
+# RESEARCH / BENCHMARK DATA (large generated files)
 # =================================================================
-# Uncomment the lines below if you want to exclude large CSVs:
-# *.csv
+# Benchmark result CSVs are generated outputs, not source code.
+# Uncomment below to exclude them from the repo:
+# final_research_results*.csv
+# insights*.txt
 
 # =================================================================
-# IMAGES / PLOTS (generated outputs — optional to exclude)
+# IMAGES / PLOTS (generated benchmark outputs — optional to exclude)
 # =================================================================
 # reusult Images/
 
@@ -113,7 +145,7 @@ desktop.ini
 *.sublime-workspace
 
 # =================================================================
-# MISC
+# MISC ARCHIVES
 # =================================================================
 *.zip
 *.tar.gz
